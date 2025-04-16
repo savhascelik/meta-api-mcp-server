@@ -64,6 +64,26 @@ meta-api-mcp-server path/to/My-API.postman_collection.json
 
 To connect to an MCP client like Cursor, configure your `mcp.json` file as follows:
 
+
+
+```json
+{
+  "mcpServers": {
+    "myApiServer": { 
+      "command": "meta-api-mcp-server",
+      "args": [
+        
+      ],
+      "env": {
+         "MCP_CONFIG_SOURCE":"api-configs/flexweather-endpoints.json",
+        "API_KEY": "your-api-key-here"
+      }
+    }
+  }
+}
+```
+
+
 ```json
 {
   "mcpServers": {
