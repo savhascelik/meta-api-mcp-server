@@ -12,6 +12,14 @@ A meta API Gateway server that works with the Model Context Protocol (MCP). You 
 - 📁 Load configurations from local files or remote URLs
 - 📑 Support for configuration file lists
 
+## API Editor Tool
+
+A user-friendly editor tool has been developed to create or edit JSON configuration files:
+
+[MCP API Editor](https://savhascelik.github.io/mcp-api-editor/)
+
+
+
 ## Installation
 
 ### Global Installation with NPM (Recommended)
