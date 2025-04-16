@@ -1,0 +1,754 @@
+{
+  "apiId": "lemon-squeezy-api",
+  "handlerType": "httpApi",
+  "baseUrl": "https://api.lemonsqueezy.com",
+  "authentication": {
+    "type": "bearerToken",
+    "envVariable": "LEMON_SQUEEZY_API_KEY"
+  },
+  "endpoints": [
+    {
+      "mcpOperationId": "Users_Retrievetheauthenticateduser",
+      "description": "Retrieve the authenticated user",
+      "targetPath": "/v1/users/me",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "Stores_Retrieveastore",
+      "description": "Retrieve a store",
+      "targetPath": "/v1/stores/1",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "Stores_Listallstores",
+      "description": "List all stores",
+      "targetPath": "/v1/stores",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "Customers_Retrieveacustomer",
+      "description": "Retrieve a customer",
+      "targetPath": "/v1/customers/1",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "Customers_Listallcustomers",
+      "description": "List all customers",
+      "targetPath": "/v1/customers",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "Products_Retrieveaproduct",
+      "description": "Retrieve a product",
+      "targetPath": "/v1/products/1",
+      "targetMethod": "GET",
+      "parameters": [
+        {
+          "name": "filter[store_id]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: filter[store_id]"
+        },
+        {
+          "name": "include",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: include"
+        },
+        {
+          "name": "page[size]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[size]"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "Products_Listallproducts",
+      "description": "List all products",
+      "targetPath": "/v1/products",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "Variants_Retrieveavariant",
+      "description": "Retrieve a variant",
+      "targetPath": "/v1/variants/1",
+      "targetMethod": "GET",
+      "parameters": [
+        {
+          "name": "filter[product_id]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: filter[product_id]"
+        },
+        {
+          "name": "page[size]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[size]"
+        },
+        {
+          "name": "page[number]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[number]"
+        },
+        {
+          "name": "include",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: include"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "Variants_Listallvariants",
+      "description": "List all variants",
+      "targetPath": "/v1/variants",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "Prices_Retrieveaprice",
+      "description": "Retrieve a price",
+      "targetPath": "/v1/prices/1",
+      "targetMethod": "GET",
+      "parameters": [
+        {
+          "name": "include",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: include"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "Prices_Listallprices",
+      "description": "List all prices",
+      "targetPath": "/v1/prices",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "Files_Retrieveafile",
+      "description": "Retrieve a file",
+      "targetPath": "/v1/files/1",
+      "targetMethod": "GET",
+      "parameters": [
+        {
+          "name": "page[number]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[number]"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "Files_Listallfiles",
+      "description": "List all files",
+      "targetPath": "/v1/files",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "Orders_Retrieveanorder",
+      "description": "Retrieve an order",
+      "targetPath": "/v1/orders/1",
+      "targetMethod": "GET",
+      "parameters": [
+        {
+          "name": "filter[product_id]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: filter[product_id]"
+        },
+        {
+          "name": "page[size]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[size]"
+        },
+        {
+          "name": "page[number]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[number]"
+        },
+        {
+          "name": "filter[user_email]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: filter[user_email]"
+        },
+        {
+          "name": "filter[store_id]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: filter[store_id]"
+        },
+        {
+          "name": "include",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: include"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "Orders_Listallorders",
+      "description": "List all orders",
+      "targetPath": "/v1/orders",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "Affiliates_Retrieveanaffiliate",
+      "description": "Retrieve an affiliate",
+      "targetPath": "/v1/affiliates/1",
+      "targetMethod": "GET",
+      "parameters": [
+        {
+          "name": "page[size]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[size]"
+        },
+        {
+          "name": "page[number]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[number]"
+        },
+        {
+          "name": "filter[user_email]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: filter[user_email]"
+        },
+        {
+          "name": "filter[status]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: filter[status]"
+        },
+        {
+          "name": "include",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: include"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "Affiliates_Listallaffiliates",
+      "description": "List all affiliates",
+      "targetPath": "/v1/affiliates",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "OrderItems_Retrieveanorderitem",
+      "description": "Retrieve an order item",
+      "targetPath": "/v1/order-items/1",
+      "targetMethod": "GET",
+      "parameters": [
+        {
+          "name": "page[size]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[size]"
+        },
+        {
+          "name": "page[number]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[number]"
+        },
+        {
+          "name": "filter[order_id]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: filter[order_id]"
+        },
+        {
+          "name": "include",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: include"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "OrderItems_Listallorderitems",
+      "description": "List all order items",
+      "targetPath": "/v1/order-items",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "Subscriptions_Retrieveasubscription",
+      "description": "Retrieve a subscription",
+      "targetPath": "/v1/subscriptions/1",
+      "targetMethod": "GET",
+      "parameters": [
+        {
+          "name": "page[size]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[size]"
+        },
+        {
+          "name": "page[number]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[number]"
+        },
+        {
+          "name": "include",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: include"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "Subscriptions_Listallsubscriptions",
+      "description": "List all subscriptions",
+      "targetPath": "/v1/subscriptions",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "Subscriptions_Updateasubscription",
+      "description": "Update a subscription",
+      "targetPath": "/v1/subscriptions/1",
+      "targetMethod": "PATCH",
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": false,
+          "type": "object",
+          "description": "Request body"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "Subscriptions_CancelaSubscription",
+      "description": "Cancel a Subscription",
+      "targetPath": "/v1/subscriptions/1",
+      "targetMethod": "DELETE",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "SubscripitonItems_Retrieveasubscriptionitem",
+      "description": "Retrieve a subscription item",
+      "targetPath": "/v1/subscription-items/1",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "SubscripitonItems_Listallsubscriptionitems",
+      "description": "List all subscription items",
+      "targetPath": "/v1/subscription-items",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "SubscripitonItems_Updateasubscriptionitem",
+      "description": "Update a subscription item",
+      "targetPath": "/v1/subscription-items/1",
+      "targetMethod": "PATCH",
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": false,
+          "type": "object",
+          "description": "Request body"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "SubscripitonItems_Retrieveasubscriptionitemscurrentusage",
+      "description": "Retrieve a subscription items current usage",
+      "targetPath": "/v1/subscription-items/1/current-usage",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "SubscripitonInvoices_Retrieveasubscriptioninvoice",
+      "description": "Retrieve a subscription invoice",
+      "targetPath": "/v1/subscription-invoices/1",
+      "targetMethod": "GET",
+      "parameters": [
+        {
+          "name": "page[size]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[size]"
+        },
+        {
+          "name": "page[number]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[number]"
+        },
+        {
+          "name": "filter[status]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: filter[status]"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "SubscripitonInvoices_Listallsubscriptioninvoices",
+      "description": "List all subscription invoices",
+      "targetPath": "/v1/subscription-invoices",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "UsageRecords_Retrieveausagerecord",
+      "description": "Retrieve a usage-record",
+      "targetPath": "/v1/usage-records/1",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "UsageRecords_Listallusagerecords",
+      "description": "List all usage records",
+      "targetPath": "/v1/usage-records",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "UsageRecords_Createausagerecord",
+      "description": "Create a usage record",
+      "targetPath": "/v1/usage-records",
+      "targetMethod": "POST",
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": false,
+          "type": "object",
+          "description": "Request body"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "Discounts_Retrieveadiscount",
+      "description": "Retrieve a discount",
+      "targetPath": "/v1/discounts/1",
+      "targetMethod": "GET",
+      "parameters": [
+        {
+          "name": "page[size]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[size]"
+        },
+        {
+          "name": "page[number]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[number]"
+        },
+        {
+          "name": "filter[store_id]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: filter[store_id]"
+        },
+        {
+          "name": "include",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: include"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "Discounts_Listalldiscounts",
+      "description": "List all discounts",
+      "targetPath": "/v1/discounts",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "Discounts_Createadiscount",
+      "description": "Create a discount",
+      "targetPath": "/v1/discounts",
+      "targetMethod": "POST",
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": false,
+          "type": "object",
+          "description": "Request body"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "Discounts_Deleteadiscount",
+      "description": "Delete a discount",
+      "targetPath": "/v1/discounts/1",
+      "targetMethod": "DELETE",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "DiscountRedemptions_Retrieveadiscountredemption",
+      "description": "Retrieve a discount redemption",
+      "targetPath": "/v1/discount-redemptions/1",
+      "targetMethod": "GET",
+      "parameters": [
+        {
+          "name": "page[size]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[size]"
+        },
+        {
+          "name": "page[number]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[number]"
+        },
+        {
+          "name": "filter[discount_id]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: filter[discount_id]"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "DiscountRedemptions_Listalldiscountredemptions",
+      "description": "List all discount redemptions",
+      "targetPath": "/v1/discount-redemptions",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "LicenseKeys_Retrievealicensekey",
+      "description": "Retrieve a license key",
+      "targetPath": "/v1/license-keys/1",
+      "targetMethod": "GET",
+      "parameters": [
+        {
+          "name": "include",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: include"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "LicenseKeys_Listalllicensekeys",
+      "description": "List all license keys",
+      "targetPath": "/v1/license-keys",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "LicenseKeyInstances_Retrievealicensekeyinstance",
+      "description": "Retrieve a license key instance",
+      "targetPath": "/v1/license-key-instances/1",
+      "targetMethod": "GET",
+      "parameters": [
+        {
+          "name": "page[size]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[size]"
+        },
+        {
+          "name": "page[number]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[number]"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "LicenseKeyInstances_Listalllicensekeyinstances",
+      "description": "List all license key instances",
+      "targetPath": "/v1/license-key-instances",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "Checkouts_Retrieveacheckout",
+      "description": "Retrieve a checkout",
+      "targetPath": "/v1/checkouts/ac470bd4-7c41-474d-b6cd-0f296f5be02a",
+      "targetMethod": "GET",
+      "parameters": [
+        {
+          "name": "page[size]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[size]"
+        },
+        {
+          "name": "page[number]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: page[number]"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "Checkouts_Listallcheckouts",
+      "description": "List all checkouts",
+      "targetPath": "/v1/checkouts",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "Checkouts_Createacheckout",
+      "description": "Create a checkout",
+      "targetPath": "/v1/checkouts",
+      "targetMethod": "POST",
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": false,
+          "type": "object",
+          "description": "checkouts object according to JSON:API spec"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "Webhooks_Retrieveawebhook",
+      "description": "Retrieve a webhook",
+      "targetPath": "/v1/webhooks/1",
+      "targetMethod": "GET",
+      "parameters": [
+        {
+          "name": "filter[store_id]",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: filter[store_id]"
+        },
+        {
+          "name": "include",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "Query parameter: include"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "Webhooks_Listallwebhooks",
+      "description": "List all webhooks",
+      "targetPath": "/v1/webhooks",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "Webhooks_Createawebhook",
+      "description": "Create a webhook",
+      "targetPath": "/v1/webhooks",
+      "targetMethod": "POST",
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": false,
+          "type": "object",
+          "description": "webhooks object according to JSON:API spec"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "Webhooks_Updateawebhook",
+      "description": "Update a webhook",
+      "targetPath": "/v1/webhooks/1",
+      "targetMethod": "PATCH",
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": false,
+          "type": "object",
+          "description": "webhooks object according to JSON:API spec"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "Webhooks_Deleteawebhook",
+      "description": "Delete a webhook",
+      "targetPath": "/v1/webhooks/1",
+      "targetMethod": "DELETE",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "Health",
+      "description": "Health",
+      "targetPath": "/v1/health",
+      "targetMethod": "GET",
+      "parameters": []
+    },
+    {
+      "mcpOperationId": "",
+      "description": "404",
+      "targetPath": "/v1/404",
+      "targetMethod": "GET",
+      "parameters": []
+    }
+  ]
+}

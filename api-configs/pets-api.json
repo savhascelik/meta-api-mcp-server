@@ -1,0 +1,65 @@
+{
+  "apiId": "petstoreV1",
+  "baseUrl": "https://petstore.swagger.io/v2",
+  "authentication": null,
+  "endpoints": [
+    {
+      "mcpOperationId": "getPetById",
+      "description": "Find pet by ID",
+      "targetPath": "/pet/{petId}",
+      "targetMethod": "GET",
+      "parameters": [
+        {
+          "name": "petId",
+          "in": "path",
+          "required": true,
+          "description": "ID of pet to return",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "mcpOperationId": "findPetsByStatus",
+      "description": "Finds Pets by status",
+      "targetPath": "/pet/findByStatus",
+      "targetMethod": "GET",
+      "parameters": [
+        {
+          "name": "status",
+          "in": "query",
+          "required": true,
+          "description": "Status values that need to be considered for filter",
+          "type": "string",
+          "enum": ["available", "pending", "sold"]
+        }
+      ]
+    },
+     {
+      "mcpOperationId": "addPet",
+      "description": "Add a new pet to the store",
+      "targetPath": "/pet",
+      "targetMethod": "POST",
+      "parameters": [
+        {
+          "name": "petData",
+          "in": "body",
+          "required": true,
+          "description": "Pet object that needs to be added to the store",
+          "type": "object",
+          "schema": {
+             "type": "object",
+             "required": ["name", "photoUrls"],
+             "properties": {
+                 "id": {"type": "integer", "format": "int64"},
+                 "category": {"type": "object", "properties": {"id": {"type": "integer"}, "name": {"type": "string"}}},
+                 "name": {"type": "string", "example": "doggie"},
+                 "photoUrls": {"type": "array", "items": {"type": "string"}},
+                 "tags": {"type": "array", "items": {"type": "object", "properties": {"id": {"type": "integer"}, "name": {"type": "string"}}}},
+                 "status": {"type": "string", "description": "pet status in the store", "enum": ["available", "pending", "sold"]}
+             }
+          }
+        }
+      ]
+    }
+  ]
+}

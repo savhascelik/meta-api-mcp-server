@@ -1,0 +1,132 @@
+{
+    "apiId": "jsonplaceholderV1",
+    "baseUrl": "https://jsonplaceholder.typicode.com",
+    "authentication": null,
+    "endpoints": [
+      {
+        "mcpOperationId": "listPosts",
+        "description": "Retrieves a list of all posts.",
+        "targetPath": "/posts",
+        "targetMethod": "GET",
+        "parameters": [
+          {
+              "name": "_limit",
+              "in": "query",
+              "required": false,
+              "description": "Limit the number of results (optional).",
+              "type": "integer"
+          }
+        ]
+      },
+      {
+        "mcpOperationId": "getPostById",
+        "description": "Retrieves a specific post by its ID.",
+        "targetPath": "/posts/{postId}",
+        "targetMethod": "GET",
+        "parameters": [
+          {
+            "name": "postId",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the post to retrieve.",
+            "type": "integer"
+          }
+        ]
+      },
+      {
+        "mcpOperationId": "getCommentsForPost",
+        "description": "Retrieves all comments for a specific post.",
+        "targetPath": "/comments",
+        "targetMethod": "GET",
+        "parameters": [
+          {
+            "name": "postId",
+            "in": "query",
+            "required": true,
+            "description": "The ID of the post whose comments are to be retrieved.",
+            "type": "integer"
+          }
+        ]
+      },
+      {
+        "mcpOperationId": "createPost",
+        "description": "Creates a new post.",
+        "targetPath": "/posts",
+        "targetMethod": "POST",
+        "parameters": [
+          {
+            "name": "postData",
+            "in": "body",
+            "required": true,
+            "description": "The post object to create.",
+            "type": "object",
+            "schema": {
+              "type": "object",
+              "required": ["title", "body", "userId"],
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "The title of the post."
+                },
+                "body": {
+                  "type": "string",
+                  "description": "The content of the post."
+                },
+                "userId": {
+                  "type": "integer",
+                  "description": "The ID of the user creating the post."
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+          "mcpOperationId": "updatePost",
+          "description": "Updates an existing post using PUT (replaces the entire post).",
+          "targetPath": "/posts/{postId}",
+          "targetMethod": "PUT",
+          "parameters": [
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "description": "ID of the post to update.",
+              "type": "integer"
+            },
+            {
+              "name": "updatedPostData",
+              "in": "body",
+              "required": true,
+              "description": "The complete updated post object.",
+              "type": "object",
+              "schema": {
+                "type": "object",
+                "required": ["id", "title", "body", "userId"],
+                "properties": {
+                   "id": {"type": "integer"},
+                   "title": {"type": "string"},
+                   "body": {"type": "string"},
+                   "userId": {"type": "integer"}
+                }
+              }
+            }
+          ]
+        },
+        {
+          "mcpOperationId": "deletePost",
+          "description": "Deletes a specific post by its ID.",
+          "targetPath": "/posts/{postId}",
+          "targetMethod": "DELETE",
+          "parameters": [
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "description": "The ID of the post to delete.",
+              "type": "integer"
+            }
+          ]
+        }
+    ]
+  }

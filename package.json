@@ -1,0 +1,45 @@
+{
+    "name": "meta-api-mcp-server",
+    "version": "1.0.0",
+    "description": "A configuration-driven Meta API Gateway server for the Model Context Protocol (MCP).",
+    "type": "module",
+    "main": "server.js",
+    "bin": {
+      "meta-mcp": "server.js"
+    },
+    "scripts": {
+      "start": "node server.js",
+      "dev": "nodemon server.js"
+    },
+    "dependencies": {
+      "@modelcontextprotocol/sdk": "^0.4.0",
+      "axios": "^1.6.8",
+      "dotenv": "^16.4.5"
+    },
+    "devDependencies": {
+      "nodemon": "^3.1.0"
+    },
+    "keywords": [
+      "mcp",
+      "model context protocol",
+      "api gateway",
+      "meta",
+      "llm",
+      "ai"
+    ],
+    "author": "savhascelik",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/savhascelik/metamcp.git"
+    },
+    "files": [
+      "src/**/*.js",
+      "api-configs/",
+      "README.md"
+    ],
+    "bugs": {
+      "url": "https://github.com/savhascelik/metamcp/issues"
+    },
+    "homepage": "https://github.com/savhascelik/metamcp#readme"
+}
