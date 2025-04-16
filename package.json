@@ -1,11 +1,11 @@
 {
     "name": "meta-api-mcp-server",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "A configuration-driven Meta API Gateway server for the Model Context Protocol (MCP).",
     "type": "module",
     "main": "server.js",
     "bin": {
-      "meta-mcp": "server.js"
+      "meta-api-mcp-server": "server.js"
     },
     "scripts": {
       "start": "node server.js",

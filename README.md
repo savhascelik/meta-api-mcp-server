@@ -42,22 +42,22 @@ npm install
 
 ```bash
 # Load from default api-configs/ folder
-meta-mcp
+meta-api-mcp-server
 
 # Specify a configuration file (in the directory where you run the server, there should be a folder with this name and structured json in it)
-meta-mcp path/to/config.json
+meta-api-mcp-server path/to/config.json
 
 # Load from a specific folder
-meta-mcp path/to/configs/
+meta-api-mcp-server path/to/configs/
 
 # Load from a remote URL
-meta-mcp https://example.com/api-config.json
+meta-api-mcp-server https://example.com/api-config.json
 
 # Load from a remote configuration list
-meta-mcp https://example.com/config-list.json
+meta-api-mcp-server https://example.com/config-list.json
 
 # Load from a Postman Collection ( your filename must contain the word ‘postman’, I'll bind it to a variable when I have time )
-meta-mcp path/to/My-API.postman_collection.json
+meta-api-mcp-server path/to/My-API.postman_collection.json
 ```
 
 ### Using with Cursor or Other MCP Clients
@@ -68,7 +68,7 @@ To connect to an MCP client like Cursor, configure your `mcp.json` file as follo
 {
   "mcpServers": {
     "myApiServer": { 
-      "command": "meta-mcp",
+      "command": "meta-api-mcp-server",
       "args": [
         "server.js",
         "path/to/api-config.json"
