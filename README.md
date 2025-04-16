@@ -23,7 +23,7 @@ npm install -g meta-api-mcp-server
 ### Installation from Source Code
 
 ```bash
-git clone https://github.com/savhascelik/metamcp.git
+git clone https://github.com/savhascelik/meta-api-mcp-server.git
 cd metamcp
 npm install
 ```
