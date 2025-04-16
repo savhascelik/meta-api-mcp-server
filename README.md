@@ -62,10 +62,48 @@ To connect to an MCP client like Cursor, configure your `mcp.json` file as follo
     "myApiServer": { 
       "command": "meta-mcp",
       "args": [
+        "server.js",
         "path/to/api-config.json"
       ],
       "env": {
         "EXAMPLE_API_KEY": "your-api-key-here"
+      }
+    }
+  }
+}
+```
+
+```json
+{
+  "mcpServers": {
+
+    "flexweather": { 
+      "command": "node",
+      "args": [
+        "server.js"
+        
+      ],
+      "env": {
+        "MCP_CONFIG_SOURCE":"api-configs/flexweather-endpoints.json"
+      }
+    }
+  }
+}
+```
+
+```json
+{
+  "mcpServers": {
+     "lemonsqueezy": { 
+      "command": "node",
+      "args": [
+        "server.js"
+        
+      ],
+      "env": {
+        "MCP_CONFIG_SOURCE":"api-configs/lemon-squeezy-api.json",
+        "LEMON_SQUEEZY_API_KEY": ""
+      
       }
     }
   }
@@ -103,20 +141,37 @@ meta-mcp my-collection.postman_collection.json
 - ✅ JSON request body
 - ✅ Postman variables (like {{api_url}})
 
+
+## API Editor Tool
+
+A user-friendly editor tool has been developed to create or edit JSON configuration files:
+
+[MCP API Editor](https://savhascelik.github.io/mcp-api-editor/)
+
+With this web tool, you can:
+
+- Create API configurations through a visual interface
+- Edit existing JSON configurations
+- Convert Postman collections to MCP-compatible configuration files
+- Validate configuration files
+- Export your configurations as JSON
+
+**Postman Collections:** You can upload your existing Postman collections to the editor tool and automatically convert them to MCP-compatible configurations. This allows you to quickly use your existing collections instead of configuring APIs from scratch.
+
+The editor makes it easy to manage tool names, parameters, and all other configuration options.
+
+
+
+
+
+
 ## Project Structure
 
 The codebase is organized in a modular way to facilitate maintenance and extension:
 
 ```
 meta-api-mcp-server/
-├── src/
-│   ├── index.js            # Main entry point
-│   ├── converters/         # Format converters
-│   │   └── postman.js      # Postman to MCP converter
-│   ├── handlers/           # Request handlers
-│   │   └── http-handler.js # HTTP API handler
-│   └── lib/                # Utility modules
-│       └── config-loader.js # Configuration loader
+├── serve.js
 ├── api-configs/            # Default config directory
 └── package.json
 ```

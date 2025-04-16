@@ -31,15 +31,14 @@
     "license": "MIT",
     "repository": {
       "type": "git",
-      "url": "git+https://github.com/savhascelik/metamcp.git"
+      "url": "git+https://github.com/savhascelik/meta-api-mcp-server.git"
     },
     "files": [
-      "src/**/*.js",
       "api-configs/",
       "README.md"
     ],
     "bugs": {
-      "url": "https://github.com/savhascelik/metamcp/issues"
+      "url": "https://github.com/savhascelik/meta-api-mcp-server/issues"
     },
-    "homepage": "https://github.com/savhascelik/metamcp#readme"
+    "homepage": "https://github.com/savhascelik/meta-api-mcp-server#readme"
 }
