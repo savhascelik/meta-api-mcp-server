@@ -1,6 +1,2 @@
-buy_me_a_coffee:
-  username: savhascelik
-  message: Keep up the good work!
-  amount: 5
-  currency: USD
-  tip_url: https://www.buymeacoffee.com/savhascelik
+buy_me_a_coffee:savhascelik
+
