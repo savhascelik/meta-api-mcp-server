@@ -1,0 +1,156 @@
+{
+    "apiId": "coinbaseCommerceV1",
+    "handlerPackage": "@meta-mcp-handler/http",
+    "baseUrl": "https://api.commerce.coinbase.com",
+    "authentication": {
+      "type": "apiKey",
+      "keyName": "X-CC-Api-Key",
+      "keyLocation": "header",
+      "envVariable": "COINBASE_COMMERCE_API_KEY",
+      "credentialSource": {
+        "type": "environmentVariable",
+        "envVariable": "COINBASE_COMMERCE_API_KEY"
+      }
+    },
+    "defaultHeaders": {
+      "X-CC-Version": "2018-03-22"
+    },
+    "endpoints": [
+      {
+        "mcpOperationId": "listCharges",
+        "description": "Retrieves a list of charge objects.",
+        "targetPath": "/charges",
+        "targetMethod": "GET",
+        "parameters": [
+          { "name": "limit", "in": "query", "required": false, "type": "integer", "description": "Number of results per page, default 10, max 100." },
+          { "name": "starting_after", "in": "query", "required": false, "type": "string", "description": "A cursor for use in pagination. ID of the charge." },
+          { "name": "ending_before", "in": "query", "required": false, "type": "string", "description": "A cursor for use in pagination. ID of the charge." }
+        ]
+      },
+      {
+        "mcpOperationId": "createCharge",
+        "description": "Creates a new charge object.",
+        "targetPath": "/charges",
+        "targetMethod": "POST",
+        "parameters": [
+          {
+            "name": "chargeData",
+            "in": "body",
+            "required": true,
+            "description": "Charge creation data.",
+            "type": "object",
+            "schema": {
+              "type": "object",
+              "required": ["name", "description", "pricing_type", "local_price"],
+              "properties": {
+                "name": { "type": "string", "description": "Charge name" },
+                "description": { "type": "string", "description": "Charge description" },
+                "pricing_type": { "type": "string", "enum": ["no_price", "fixed_price"], "description": "Pricing type" },
+                "local_price": {
+                   "type": "object",
+                   "required": ["amount", "currency"],
+                   "properties": {
+                      "amount": { "type": "string", "description": "Price amount (e.g., \"100.00\")" },
+                      "currency": { "type": "string", "description": "Price currency (e.g., \"USD\")" }
+                   }
+                },
+                "metadata": { "type": "object", "description": "Optional key-value metadata." },
+                "redirect_url": { "type": "string", "description": "URL to redirect after successful payment." },
+                "cancel_url": { "type": "string", "description": "URL to redirect after charge cancellation." }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "mcpOperationId": "showCharge",
+        "description": "Retrieves the details of a charge by its code or ID.",
+        "targetPath": "/charges/{charge_code_or_id}",
+        "targetMethod": "GET",
+        "parameters": [
+          { "name": "charge_code_or_id", "in": "path", "required": true, "type": "string", "description": "The code or ID of the charge to retrieve." }
+        ]
+      },
+      {
+          "mcpOperationId": "cancelCharge",
+          "description": "Cancels an unresolved charge by its code or ID.",
+          "targetPath": "/charges/{charge_code_or_id}/cancel",
+          "targetMethod": "POST",
+          "parameters": [
+            { "name": "charge_code_or_id", "in": "path", "required": true, "type": "string", "description": "The code or ID of the charge to cancel." }
+          ]
+        },
+  
+      {
+        "mcpOperationId": "listCheckouts",
+        "description": "Retrieves a list of checkout objects.",
+        "targetPath": "/checkouts",
+        "targetMethod": "GET",
+        "parameters": [
+          { "name": "limit", "in": "query", "required": false, "type": "integer" },
+          { "name": "starting_after", "in": "query", "required": false, "type": "string" },
+          { "name": "ending_before", "in": "query", "required": false, "type": "string" }
+        ]
+      },
+      {
+        "mcpOperationId": "createCheckout",
+        "description": "Creates a new checkout object.",
+        "targetPath": "/checkouts",
+        "targetMethod": "POST",
+        "parameters": [
+          {
+            "name": "checkoutData",
+            "in": "body",
+            "required": true,
+            "description": "Checkout creation data.",
+            "type": "object",
+             "schema": {
+               "type": "object",
+               "required": ["name", "description", "pricing_type", "local_price"],
+               "properties": {
+                  "name": { "type": "string" },
+                  "description": { "type": "string" },
+                  "pricing_type": { "type": "string", "enum": ["no_price", "fixed_price"] },
+                  "local_price": {
+                      "type": "object",
+                      "required": ["amount", "currency"],
+                      "properties": { "amount": { "type": "string" }, "currency": { "type": "string" } }
+                   },
+                  "requested_info": { "type": "array", "items": { "type": "string", "enum": ["name", "email"] } }
+               }
+             }
+          }
+        ]
+      },
+      {
+        "mcpOperationId": "showCheckout",
+        "description": "Retrieves the details of a checkout by its ID.",
+        "targetPath": "/checkouts/{checkout_id}",
+        "targetMethod": "GET",
+        "parameters": [
+          { "name": "checkout_id", "in": "path", "required": true, "type": "string", "description": "The ID of the checkout to retrieve." }
+        ]
+      },
+  
+      {
+        "mcpOperationId": "listEvents",
+        "description": "Retrieves a list of event objects.",
+        "targetPath": "/events",
+        "targetMethod": "GET",
+        "parameters": [
+           { "name": "limit", "in": "query", "required": false, "type": "integer" },
+           { "name": "starting_after", "in": "query", "required": false, "type": "string" },
+           { "name": "ending_before", "in": "query", "required": false, "type": "string" }
+        ]
+      },
+      {
+        "mcpOperationId": "showEvent",
+        "description": "Retrieves the details of an event by its ID.",
+        "targetPath": "/events/{event_id}",
+        "targetMethod": "GET",
+        "parameters": [
+          { "name": "event_id", "in": "path", "required": true, "type": "string", "description": "The ID of the event to retrieve." }
+        ]
+      }
+    ]
+  }
