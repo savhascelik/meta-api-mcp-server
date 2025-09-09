@@ -1,6 +1,7 @@
 {
     "name": "meta-api-mcp-server",
     "version": "1.0.3",
+    "mcpName": "io.github.savhascelik/meta-api-mcp-server",
     "description": "A configuration-driven Meta API Gateway server for the Model Context Protocol (MCP).",
     "type": "module",
     "main": "server.js",
